@@ -71,7 +71,7 @@
 					var win=true;
 					Checkboxes.forEach(function(Checkboxrow) {
 						Checkboxrow.forEach(function(Check) {
-							//win&&=Check.checked;
+							win=win&&Check.checked;
 						});
 					});
 					if(win){
