@@ -55,20 +55,20 @@
 					row=Number(this.id.substring(1,2));
 					column=Number(this.id.substring(2,3));
 					if(row>0){
-						Checkboxes[row-1][column].checked-=1;
+						Checkboxes[row-1][column].checked=!Checkboxes[row-1][column].checked;
 				}
 					if(column<3){
-						Checkboxes[row][column+1].checked-=1;
+						Checkboxes[row][column+1].checked=!Checkboxes[row][column+1].checked;
 					}
 					if(row<3){
-						Checkboxes[row+1][column].checked-=1;
+						Checkboxes[row+1][column].checked=!Checkboxes[row+1][column].checked;
 					}
 					if(column>0){
-						Checkboxes[row][column-1].checked-=1;
+						Checkboxes[row][column-1].checked=!Checkboxes[row][column-1].checked;
 					}
 					stepCount++;
 					Steps.innerHTML="Steps:"+stepCount;
-					win=1;
+					win=true;
 					Checkboxes.forEach(function(Checkboxrow) {
 						Checkboxrow.forEach(function(Check) {
 							win&&=Check.checked;
@@ -87,7 +87,7 @@
 		Reset.addEventListener('click', function() {
 			Checkboxes.forEach(function(Checkboxrow) {
 				Checkboxrow.forEach(function(Check) {
-					Check.checked=0;
+					Check.checked=false;
 				});
 			});
 			stepCount=0;
