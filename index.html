@@ -36,6 +36,7 @@
 	<br>
 	<p id="Steps">Steps:0</p>
 	<button id="Reset">Reset</button>
+	<button id="Undo">Undo</button>
 	<script>
 		const C00 = document.getElementById("C00");
 		const C01 = document.getElementById("C01");
@@ -66,13 +67,15 @@
 		
 		const Steps = document.getElementById("Steps");
 		const Reset = document.getElementById("Reset");
+		const Undo = document.getElementById("Undo");
 		var stepCount=0;
+		var Stack="";
 		const size=5
 		Checkboxes.forEach(function(Checkboxrow) {
 			Checkboxrow.forEach(function(Check) {
 				Check.addEventListener('change', function() {
-					var row=Number(this.id.substring(1,2));
-					var column=Number(this.id.substring(2,3));
+					var row=Number(this.id.substr(1,1));
+					var column=Number(this.id.substr(2,1));
 					if(row>0){
 						Checkboxes[row-1][column].checked=!Checkboxes[row-1][column].checked;
 				}
@@ -87,6 +90,7 @@
 					}
 					stepCount++;
 					Steps.innerHTML="Steps:"+stepCount;
+					Stack=(Stack+row)+column
 					var win=true;
 					Checkboxes.forEach(function(Checkboxrow) {
 						Checkboxrow.forEach(function(Check) {
@@ -107,7 +111,17 @@
 				});
 			});
 			stepCount=0;
+			Stack="";
 			Steps.innerHTML="Steps:"+stepCount;
+		});
+		Undo.addEventListener('click', function() {
+			if(Stack.length>0){
+				var row=Number(Stack.substr(Stack.length-2,1));
+				var column=Number(Stack.substr(Stack.length-1,1));
+				stepCount-=2;
+				Checkboxes[row][column].click();
+				Stack=Stack.substr(0,Stack.length-4);
+			}
 		});
 		Reset.click();
 	</script>
