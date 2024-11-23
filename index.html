@@ -75,8 +75,10 @@
 						});
 					});
 					if(win){
-							Steps.innerHTML="You won in "+stepCount+" steps";
+					setTimeout(function() {
 							alert("You won in "+stepCount+" steps, Try again?");
+							Reset.click();
+						}, 10);
 					}
 				});
 			});
