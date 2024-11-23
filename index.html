@@ -147,11 +147,9 @@
 		const Checkboxes=[[C00,C01,C02,C03],[C10,C11,C12,C13],[C20,C21,C22,C23],[C30,C31,C32,C33]]
 		
 		const Score = document.getElementById("Steps");
+		const Reset = document.getElementById("Reset");
 		var stepCount=0;
-		C00.addEventListener('change', function() {
-			stepCount++;
-            Score.innerHTML = "Steps:"+stepCount;
-        });
+		
 		Checkboxes.forEach(function(Checkboxrow) {
 			Checkboxrow.forEach(function(Check) {
 				Check.addEventListener('change', function() {
@@ -173,6 +171,15 @@
 					Steps.innerHTML="Steps:"+stepCount;
 				});
 			});
+		});
+		Reset.addEventListener('click', function() {
+			Checkboxes.forEach(function(Checkboxrow) {
+				Checkboxrow.forEach(function(Check) {
+					Check.checked=false;
+				});
+			});
+			stepCount=0;
+			Steps.innerHTML="Steps:"+stepCount;
 		});
 	</script>
 </body>
