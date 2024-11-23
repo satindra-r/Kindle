@@ -105,16 +105,17 @@
     <title>Kindle</title>
 </head>
 <body>
-    <input type="checkbox" id="C"> 
-	<p id="P">
-	hi
+    <input type="checkbox" id="C00"> 
+	<p id="Steps">
+	Steps:0
 	</p>
-
     <script>
-		const C = document.getElementById("C");
-		const P = document.getElementById("P");
-		C.addEventListener('change', function() {
-            P.innerHTML = this.checked ? "hello" : "hi";
+		const C00 = document.getElementById("C00");
+		const Score = document.getElementById("Steps");
+		var stepCount=0;
+		C00.addEventListener('change', function() {
+			stepCount++;
+            Score.innerHTML = "Steps:"+stepCount;
         });
 	</script>
 </body>
