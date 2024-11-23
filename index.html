@@ -47,13 +47,13 @@
 		
 		const Steps = document.getElementById("Steps");
 		const Reset = document.getElementById("Reset");
-		stepCount=0;
+		var stepCount=0;
 		
 		Checkboxes.forEach(function(Checkboxrow) {
 			Checkboxrow.forEach(function(Check) {
 				Check.addEventListener('change', function() {
-					row=Number(this.id.substring(1,2));
-					column=Number(this.id.substring(2,3));
+					var row=Number(this.id.substring(1,2));
+					var column=Number(this.id.substring(2,3));
 					if(row>0){
 						Checkboxes[row-1][column].checked=!Checkboxes[row-1][column].checked;
 				}
@@ -68,7 +68,7 @@
 					}
 					stepCount++;
 					Steps.innerHTML="Steps:"+stepCount;
-					win=true;
+					var win=true;
 					Checkboxes.forEach(function(Checkboxrow) {
 						Checkboxrow.forEach(function(Check) {
 							win&&=Check.checked;
