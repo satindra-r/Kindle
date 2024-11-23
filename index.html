@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html>
 <head>
@@ -93,6 +94,28 @@
 			stepCount=0;
 			Steps.innerHTML="Steps:"+stepCount;
 		});
+	</script>
+</body>
+</html>
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kindle</title>
+</head>
+<body>
+    <input type="checkbox" id="C"> 
+	<p id="P">
+	hi
+	</p>
+
+    <script>
+		const C = document.getElementById("C");
+		const P = document.getElementById("P");
+		C.addEventListener('change', function() {
+            P.innerHTML = this.checked ? "hello" : "hi";
+        });
 	</script>
 </body>
 </html>
